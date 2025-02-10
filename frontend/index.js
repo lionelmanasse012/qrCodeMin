@@ -1,5 +1,6 @@
-const print = document.getElementById('print');
-print.style.display = "none"
+const print = document.getElementById("print");
+print.style.display = "none";
+const form = document.getElementById("qrcode-form");
 
 document
   .getElementById("qrcode-form")
@@ -9,11 +10,14 @@ document
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
-    const response = await fetch("https://formulaire-api-mardo.onrender.com/api/qrcode", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://formulaire-api-mardo.onrender.com/api/qrcode",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    );
 
     const result = await response.json();
 
@@ -21,17 +25,18 @@ document
     const qrTitle = document.getElementById("qrTitle");
 
     const printImage = () => {
-      
       let image = qrCodeImage;
       console.log(image.src);
       let newWindow = window.open("", "_blank");
-      newWindow.document.write(`<html><head><title>Impression</title></head><body><img src=${image.src}></body></html>`);
+      newWindow.document.write(
+        `<html><head><title>Impression</title></head><body><img src=${image.src}></body></html>`
+      );
       newWindow.document.close();
       newWindow.print();
       newWindow.close();
-    }
+    };
 
-    print.onclick = printImage
+    print.onclick = printImage;
 
     if (result.qrCodeImage) {
       qrCodeImage.src = result.qrCodeImage;
@@ -43,4 +48,5 @@ document
       qrTitle.style.display = "none";
       alert("Erreur lors de la génération du QR Code");
     }
+    form.reset();
   });

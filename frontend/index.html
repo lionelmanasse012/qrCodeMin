@@ -1,39 +1,85 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire - Ministère des Plans</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav>
-        <img class="" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Kinshasa%2C_DRC.svg" alt="">
-        <h2>MINISTÈRE PROVINCIAL DES MINES, HYDROCARBURES ET PORTEFEUILLE</h2>
+
+<body class="bg-gray-100 flex flex-col items-center min-h-screen py-6">
+
+    <!-- Barre de navigation fixée en haut -->
+    <nav class="bg-white w-full py-2 px-6 flex items-center justify-center gap-20 shadow-md fixed top-0 left-0 z-50">
+        <img class="h-16 w-auto mb-2"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvDgfgXlz4XF2_T6_WgQp_wWV8ZM31-NHVstY8xA3zKDnGyivJQfj-h00UkpURUDrWv3k&usqp=CAU" alt="Drapeau">
+        <h2 class="text-lg font-semibold uppercase text-center">MINISTÈRE PROVINCIAL DES MINES, HYDROCARBURES ET PORTEFEUILLE</h2>
     </nav>
-    <form id="qrcode-form">
-        <label for="nom">Nom :</label>
-        <input class="border" type="text" id="nom" name="nom" required><br><br>
 
-        <label for="prenom">Prénom :</label>
-        <input class="border" type="text" id="prenom" name="prenom" required><br><br>
+    <!-- Espace de marge pour compenser la barre de navigation fixée -->
+    <div class="mt-20 flex justify-center items-start w-full max-w-6xl space-x-12">
 
-        <label for="bon">Bon :</label>
-        <input class="border" type="text" id="bon" name="bon" required><br><br>
+        <!-- Formulaire -->
+        <form id="qrcode-form" class="bg-white px-6 p-3 rounded-lg shadow-lg space-y-2 w-full max-w-lg" action="" method="POST">
+        
+            <!-- Nom -->
+            <div>
+                <label for="nom" class="block text-gray-700 font-medium">Nom</label>
+                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    type="text" id="nom" name="nom" required aria-required="true">
+            </div>
 
-        <label for="carriere">Carrière :</label>
-        <input class="border" type="text" id="carriere" name="carriere" required><br><br>
+            <!-- Prénom -->
+            <div>
+                <label for="prenom" class="block text-gray-700 font-medium">Prénom</label>
+                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    type="text" id="prenom" name="prenom" required aria-required="true">
+            </div>
 
-        <label for="ministre">Ministre :</label>
-        <input class="border" type="text" id="ministre" name="ministre" required><br><br>
+            <!-- Bon -->
+            <div>
+                <label for="bon" class="block text-gray-700 font-medium">Bon</label>
+                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    type="text" id="bon" name="bon" required aria-required="true">
+            </div>
 
-        <button type="submit">Envoyer</button>
-        <button id="print" type="button">Imprimer</button>
-    </form>
+            <!-- Carrière -->
+            <div>
+                <label for="carriere" class="block text-gray-700 font-medium">Carrière</label>
+                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    type="text" id="carriere" name="carriere" required aria-required="true">
+            </div>
 
-    <h3 id="qrTitle" style="display: none;">QR Code généré :</h3>
-    <img id="qrCodeImage" alt="QR Code généré" style="display: none;">
+            <!-- Ministre -->
+            <div>
+                <label for="ministre" class="block text-gray-700 font-medium">Ministre</label>
+                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    type="text" id="ministre" name="ministre" required aria-required="true">
+            </div>
+
+            <!-- Bouton Envoyer -->
+            <div class="flex justify-center mt-6">
+                <button type="submit"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out text-sm"
+                    aria-label="Envoyer les données du formulaire">Envoyer</button>
+            </div>
+        </form>
+
+        <!-- QR Code -->
+        <div class="flex flex-col items-center">
+            <h3 id="qrTitle" class="text-lg font-semibold text-gray-700 mt-6 hidden">QR Code généré :</h3>
+            <img id="qrCodeImage" class="mt-4 border border-gray-300 rounded-lg shadow-md hidden" alt="QR Code généré">
+
+            <!-- Bouton Imprimer -->
+            <button id="print" type="button"
+                class="bg-gray-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-gray-600 transition duration-300 ease-in-out text-sm"
+                aria-label="Imprimer le formulaire">Imprimer</button>
+        </div>
+
+    </div>
 
     <script src="./index.js"></script>
 </body>
+
 </html>
