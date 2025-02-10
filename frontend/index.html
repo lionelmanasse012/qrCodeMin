@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Formulaire - Ministère des Mines</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -18,50 +18,50 @@
     </nav>
 
     <!-- Espace de marge pour compenser la barre de navigation fixée -->
-    <div class="mt-44 flex justify-center items-start w-full px-4 max-w-7xl flex-col lg:flex-row lg:mt-24">
+    <div class="mt-44 lg:mt-24 flex justify-center items-start w-full px-4 max-w-7xl flex-col lg:flex-row">
 
         <!-- Formulaire (déplacé uniquement sur grands écrans) -->
-        <form id="qrcode-form" class="bg-white p-6 rounded-lg shadow-xl space-y-2 w-full lg:py-4 lg:w-96 lg:mr-12 lg:mb-0 mb-8" action="" method="POST">
+        <form id="qrcode-form" class="bg-white p-6 py-3 rounded-lg shadow-xl space-y-2 w-full lg:w-96 lg:mr-12 lg:mb-0 mb-8" action="" method="POST">
         
             <!-- Nom -->
             <div>
                 <label for="nom" class="block text-gray-700 font-medium">Nom</label>
-                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                <input class="w-full border border-gray-300 rounded-lg p-1 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm lg:text-base"
                     type="text" id="nom" name="nom" required aria-required="true">
             </div>
 
             <!-- Prénom -->
             <div>
                 <label for="prenom" class="block text-gray-700 font-medium">Prénom</label>
-                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                <input class="w-full border border-gray-300 rounded-lg p-1 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm lg:text-base"
                     type="text" id="prenom" name="prenom" required aria-required="true">
             </div>
 
             <!-- Bon -->
             <div>
                 <label for="bon" class="block text-gray-700 font-medium">Bon</label>
-                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                <input class="w-full border border-gray-300 rounded-lg p-1 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm lg:text-base"
                     type="text" id="bon" name="bon" required aria-required="true">
             </div>
 
             <!-- Carrière -->
             <div>
                 <label for="carriere" class="block text-gray-700 font-medium">Carrière</label>
-                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                <input class="w-full border border-gray-300 rounded-lg p-1 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm lg:text-base"
                     type="text" id="carriere" name="carriere" required aria-required="true">
             </div>
 
             <!-- Ministre -->
             <div>
                 <label for="ministre" class="block text-gray-700 font-medium">Ministre</label>
-                <input class="w-full border border-gray-300 rounded-lg p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs"
+                <input class="w-full border border-gray-300 rounded-lg p-1 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm lg:text-base"
                     type="text" id="ministre" name="ministre" required aria-required="true">
             </div>
 
             <!-- Bouton Envoyer -->
             <div class="flex justify-center mt-6">
                 <button type="submit"
-                    class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out text-xs"
+                    class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out text-xs my-2"
                     aria-label="Envoyer les données du formulaire">Envoyer</button>
             </div>
         </form>
