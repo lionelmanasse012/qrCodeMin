@@ -4,29 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire - Ministère des Plans</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <h2>MINISTÈRE DES PLANS</h2>
+    <nav>
+        <img class="" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Kinshasa%2C_DRC.svg" alt="">
+        <h2>MINISTÈRE PROVINCIAL DES MINES</h2>
+    </nav>
     <form id="qrcode-form">
         <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br><br>
-
-        <label for="post_nom">Post-nom :</label>
-        <input type="text" id="post_nom" name="post_nom" required><br><br>
+        <input class="border" type="text" id="nom" name="nom" required><br><br>
 
         <label for="prenom">Prénom :</label>
-        <input type="text" id="prenom" name="prenom" required><br><br>
+        <input class="border" type="text" id="prenom" name="prenom" required><br><br>
 
         <label for="bon">Bon :</label>
-        <input type="text" id="bon" name="bon" required><br><br>
+        <input class="border" type="text" id="bon" name="bon" required><br><br>
 
         <label for="carriere">Carrière :</label>
-        <input type="text" id="carriere" name="carriere" required><br><br>
+        <input class="border" type="text" id="carriere" name="carriere" required><br><br>
 
         <label for="ministre">Ministre :</label>
-        <input type="text" id="ministre" name="ministre" required><br><br>
+        <input class="border" type="text" id="ministre" name="ministre" required><br><br>
 
         <button type="submit">Envoyer</button>
+        <button id="print" type="button">Imprimer</button>
     </form>
 
     <h3 id="qrTitle" style="display: none;">QR Code généré :</h3>

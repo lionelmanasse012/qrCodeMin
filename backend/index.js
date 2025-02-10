@@ -13,13 +13,13 @@ app.post("/api/qrcode", async (req, res) => {
   try {
     console.log("Données reçues :", req.body);
 
-    const { nom, post_nom, prenom, bon, carriere, ministre } = req.body;
+    const { nom, prenom, bon, carriere, ministre } = req.body;
 
-    if (!nom || !post_nom || !prenom || !bon || !carriere || !ministre) {
+    if (!nom || !prenom || !bon || !carriere || !ministre) {
       return res.status(400).json({ error: "Tous les champs sont requis" });
     }
 
-    const data = `Nom: ${nom}\nPost-nom: ${post_nom}\nPrénom: ${prenom}\nBon: ${bon}\nCarrière: ${carriere}\nMinistre: ${ministre}`;
+    const data = `Nom: ${nom}\nPrénom: ${prenom}\nBon: ${bon}\nCarrière: ${carriere}\nMinistre: ${ministre}`;
 
     console.log("Données encodées :", data);
 
