@@ -1,9 +1,9 @@
-const express = require("express");
-const QRCode = require("qrcode");
-const cors = require("cors");
+import express from "express";
+import QRCode from "qrcode";
+import cors from "cors";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/api/qrcode", async (req, res) => {
   try {
-    console.log("Données reçues :", req.body); // Vérification
+    console.log("Données reçues :", req.body);
 
     const { nom, post_nom, prenom, bon, carriere, ministre } = req.body;
 
@@ -21,8 +21,8 @@ app.post("/api/qrcode", async (req, res) => {
 
     const data = `Nom: ${nom}\nPost-nom: ${post_nom}\nPrénom: ${prenom}\nBon: ${bon}\nCarrière: ${carriere}\nMinistre: ${ministre}`;
 
-    console.log("Données encodées :", data); 
-    
+    console.log("Données encodées :", data);
+
     const qrCodeImage = await QRCode.toDataURL(data);
     res.json({ qrCodeImage });
   } catch (error) {
