@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "node --watch index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
