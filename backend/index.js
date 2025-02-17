@@ -31,8 +31,15 @@ app.post("/api/qrcode", async (req, res) => {
     }
 
     // Données encodées dans le QR code
-    const qrData = `Nom: ${nom}\nPrénom: ${prenom}\nBon: ${bon}\nCarrière: ${carriere}\nMinistre: ${ministre}`;
     const qrCodeSerial = `QR-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    const qrData = `
+      Nom: ${nom}
+      Prénom: ${prenom}
+      Bon: ${bon}
+      Carrière: ${carriere}
+      Ministre: ${ministre}
+      QRCodeSerial: ${qrCodeSerial}
+    `;
 
     // Génération du QR code en base64
     let qrCodeImage;
@@ -59,16 +66,16 @@ app.post("/api/qrcode", async (req, res) => {
         carriere,
         ministre,
         qrCodeImage,
-        "pending", // Statut initial
+        "pending",
       ]);
     } catch (dbError) {
       console.error("Erreur lors de l'insertion dans la base de données:", dbError);
       return res.status(500).json({ error: "Erreur lors de l'insertion dans la base de données" });
     }
 
-    // Réponse avec le numéro de série et l'image générée
+    // Réponse avec le numéro de série, le status et l'image générée
     res.json({
-      qrCodeSerial: result.rows[0].qrcodeSerial,
+      qrCodeSerial: result.rows[0].qrcodeserial,
       qrCodeImage,
     });
   } catch (error) {
