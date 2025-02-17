@@ -19,7 +19,7 @@ document
 
     try {
       // Effectuer la requête
-      const response = await fetch("http://localhost:3001/api/qrcode", {
+      const response = await fetch("https://formulaire-api-mardo.onrender.com/api/qrcode", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
